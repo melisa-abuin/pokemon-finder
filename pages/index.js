@@ -1,5 +1,5 @@
-import Test from '../components/test'
+import { SearchBox } from '../components'
 
 export default function Home() {
-  return <div>Loading ... <Test /></div>;
+  return <div><SearchBox /></div>
 }
