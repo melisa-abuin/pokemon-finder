@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client'
 import gql from 'graphql-tag'
-import React, { useState } from 'react'
+import React from 'react'
 
 const GET_POKEMON_INFO = gql`
 query getPokemon {
