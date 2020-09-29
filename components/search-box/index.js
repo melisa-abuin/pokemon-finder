@@ -32,7 +32,7 @@ const SearchBox = () => {
     const name = form.elements.name.value
     name && getPokemon({ variables: { name: `pokemon/${name}` } })
   }
-  console.log(pokemon)
+
   return (
     <div>
       <form>
