@@ -1,14 +1,19 @@
 import React from 'react'
+import { Container, Image, ImageBackground, Title, Type, TypesSection, TypeImage } from './styles'
 
 const Card = ({ name, image, types }) => {
   return (
-    <div>
-      <img src={image && image.front} />
-      <h2>{name}</h2>
-      {types && types.map((item, index) => 
-        <div key={index}>{item.type.name}</div>
-      )}
-    </div>
+    <Container>
+      <ImageBackground>
+        <Image src={image && image.front} />
+      </ImageBackground>
+      <Title>{name}</Title>
+      <TypesSection>
+        {types && types.map((item, index) => 
+          <Type key={index}><TypeImage src={`/${item.type.name}.png`} />{item.type.name}</Type>
+        )}
+      </TypesSection>
+    </Container>
   )
 }
 

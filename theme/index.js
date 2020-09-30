@@ -8,6 +8,10 @@ const theme = {
     cobalt: '#003DB3',
     gray: '#333333',
     mercury: '#F7F7F7',
+    nobel: '#B3B3B3',
+    red: '#E60000',
+    rose: '#FFAA80',
+    sunset: '#FF5050',
     transparent: 'inherit',
     white: '#FFFFFF'
   },

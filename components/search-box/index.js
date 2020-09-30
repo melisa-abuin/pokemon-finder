@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import gql from 'graphql-tag'
 import Card from '../card'
-import { Container } from './styles'
+import { Container, Form, Input, Button } from './styles'
 
 const GET_POKEMON_INFO_BY_NAME = gql`
   query getPokemon($name: String!) {
@@ -36,11 +36,11 @@ const SearchBox = () => {
 
   return (
     <Container>
-      <form>
-        <input name='name' placeholder='type pokemon name' />
-        <button type='button' onClick={e => handleSubmit(e)} >Search</button>
-      </form>
-      <Card {...pokemon} />
+      <Form>
+        <Input name='name' placeholder='type pokemon name' />
+        <Button type='button' onClick={e => handleSubmit(e)} >Search</Button>
+      </Form>
+      {pokemon && <Card {...pokemon} />}
     </Container>
   )
 }
