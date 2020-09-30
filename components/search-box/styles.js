@@ -9,6 +9,10 @@ export const Container = styled.div`
   background-image: url('/background.jpg');
   height: 100vh;
 `
+export const Error = styled.p`
+  margin-top: 20px;
+  color: ${({ theme }) => theme.colors.red};
+`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

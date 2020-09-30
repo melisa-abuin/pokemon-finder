@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import gql from 'graphql-tag'
 import Card from '../card'
-import { Container, Form, Input, Button } from './styles'
+import { Container, Error, Form, Input, Button } from './styles'
 
 const GET_POKEMON_INFO_BY_NAME = gql`
   query getPokemon($name: String!) {
@@ -22,7 +22,7 @@ const GET_POKEMON_INFO_BY_NAME = gql`
 const SearchBox = () => {
 
   const [ pokemon, setPokemon ] = useState(null)
-  const [ getPokemon, { loading, data } ] = useLazyQuery(GET_POKEMON_INFO_BY_NAME, {
+  const [ getPokemon, { loading, data, called } ] = useLazyQuery(GET_POKEMON_INFO_BY_NAME, {
     onCompleted: data => setPokemon(data.pokemon),
     fetchPolicy: 'network-only'
   })
@@ -31,16 +31,17 @@ const SearchBox = () => {
     event.preventDefault()
     const form = event.target.parentElement
     const name = form.elements.name.value
-    name && getPokemon({ variables: { name: `pokemon/${name}` } })
+    const nameToSend = name && name.toLowerCase();
+    nameToSend && getPokemon({ variables: { name: `pokemon/${nameToSend}` } })
   }
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={e => e.preventDefault()} >
         <Input name='name' placeholder='type pokemon name' />
         <Button type='button' onClick={e => handleSubmit(e)} >Search</Button>
       </Form>
-      {pokemon && <Card {...pokemon} />}
+      {pokemon ? <Card {...pokemon} /> : called && <Error>Ups! Pokemon not found</Error>}
     </Container>
   )
 }
