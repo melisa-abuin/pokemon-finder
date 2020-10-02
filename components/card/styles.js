@@ -1,4 +1,13 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const shine = keyframes`
+  from {
+    background-position: -250px -250px, center;
+  }
+  to {
+    background-position: 250px 250px, center;
+  }
+`;
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.mercury};
@@ -14,6 +23,20 @@ export const ImageBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(
+      to top left, 
+      rgba(255, 255, 255, 0.0) 0%,
+      rgba(255, 255, 255, 0.0) 45%,
+      rgba(255, 255, 255, 0.5) 48%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0.5) 52%,
+      rgba(255, 255, 255, 0.0) 57%,
+      rgba(255, 255, 255, 0.0) 100%
+    ), ${({ theme }) => theme.colors.rose};
+  animation: ${shine} 2s forwards;
+  background-size: 600px 600px, 100% 100%;
+  background-repeat: no-repeat;
+  animation-delay: 0.5s;
 `
 export const Image = styled.img`
   max-width: 170px;
