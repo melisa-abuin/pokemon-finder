@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from '../card'
+import { Card } from '../'
 import { Container, Error, Form, Input, Button } from './styles'
 import useApi from './api'
 
@@ -21,7 +21,9 @@ const SearchBox = () => {
         <Input name='name' placeholder='type pokemon name' />
         <Button type='button' onClick={e => handleSubmit(e)} >Search</Button>
       </Form>
-      {pokemon ? <Card {...pokemon} /> : called && <Error>Ups! Pokemon not found</Error>}
+      {pokemon ? <Card {...pokemon} /> : 
+        called && <Error>Ups! Pokemon not found</Error>}
+     
     </Container>
   )
 }
