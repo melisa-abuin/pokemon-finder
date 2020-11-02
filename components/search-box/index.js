@@ -23,7 +23,7 @@ const SearchBox = () => {
         <Input name='name' placeholder={t('search-box.type')} />
         <Button type='button' onClick={e => handleSubmit(e)} >{t('search-box.search')}</Button>
       </Form>
-      {pokemon ? <><Card {...pokemon} /> <TypeRelationships types={pokemon.types} /></> : 
+      {pokemon ? <><Card {...pokemon} /></> : 
         called && !loading && <Error>{t('error.not-found')}</Error>}
      
     </Container>
