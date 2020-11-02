@@ -1,5 +1,6 @@
 import React from 'react'
-import { Container, Image, ImageBackground, Title, Type, TypesSection, TypeImage } from './styles'
+import { Container, Image, ImageBackground, Title, TypesSection } from './styles'
+import { TypeIcon } from '..'
 
 const Card = ({ name, image, types }) => {
   return (
@@ -10,7 +11,7 @@ const Card = ({ name, image, types }) => {
       <Title>{name}</Title>
       <TypesSection>
         {types && types.map((item, index) => 
-          <Type key={index}><TypeImage src={`/${item.type.name}.png`} />{item.type.name}</Type>
+          <TypeIcon key={index} name={item.type.name} />
         )}
       </TypesSection>
     </Container>
