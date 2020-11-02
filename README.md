@@ -1,5 +1,5 @@
 # Pokemon Finder
-  * This is a web application to search data from a specific pokemon, and compare its strengths and weakness agains another types
+  * This is a web application to search data from a specific pokemon, and compare its strengths and weakness against other types
   * To see the web aplication follow this [Link](pokemon-finder-xi.vercel.app/)
   
  ![contributions](https://img.shields.io/static/v1?label=contributions&message=welcome&color=green)
