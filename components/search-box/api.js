@@ -19,7 +19,7 @@ const GET_POKEMON_INFO_BY_NAME = gql`
 const useApi = () => {
 
   const [ pokemon, setPokemon ] = useState(null)
-  const [ getPokemon, { loading, data, called } ] = useLazyQuery(GET_POKEMON_INFO_BY_NAME, {
+  const [ getPokemon, { called } ] = useLazyQuery(GET_POKEMON_INFO_BY_NAME, {
     onCompleted: data => setPokemon(data.pokemon),
     fetchPolicy: 'network-only'
   })

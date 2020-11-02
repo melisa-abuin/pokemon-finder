@@ -1,21 +1,20 @@
-import { useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import gql from 'graphql-tag'
 
 const GET_TYPES_RELATIONSHIPS = gql`
-  query getTypes($type: String!) {
-    types @rest(type: "Types", path: $type) {
+  query getTypes($type: String!, $value: String!) {
+    types @rest(type: $value, path: $type) {
     relation: damage_relations {
-      weakness: double_damage_from { 
+      doubleDamageFrom: double_damage_from { 
         name
       }
-      strength: double_damage_to {
+      doubleDamageTo: double_damage_to {
         name
       }
-      no_damage_from {
+      noDamageFrom: no_damage_from {
         name
       }
-      no_damage_to {
+      noDamageTo: no_damage_to {
         name
       }
     }
@@ -24,19 +23,15 @@ const GET_TYPES_RELATIONSHIPS = gql`
 `
 
 const useApi = () => {
-
-  const [ type, setType ] = useState(null)
-  const [ getTypes, { loading, data, called } ] = useLazyQuery(GET_TYPES_RELATIONSHIPS, {
-    onCompleted: data => setType(data),
+  const [ getTypes, { called, data } ] = useLazyQuery(GET_TYPES_RELATIONSHIPS, {
     fetchPolicy: 'network-only'
   })
+  const setData = path => {
+    path && getTypes({ variables: { type: `type/${path}`} })
 
-  const setData = type => {
-    console.log(type)
-    type && getTypes({ variables: { type: `type/${type}` } })
   }
-
-  return [ { type, called }, setData ]
+  
+  return [ { data, called }, setData ]
 }
 
 export default useApi

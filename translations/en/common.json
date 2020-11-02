@@ -1,0 +1,14 @@
+{
+  "search-box": {
+    "search": "Search",
+    "type":  "type pokemon name"
+  },
+  "error": {
+    "not-found": "Ups! Pokemon not found."
+  },
+  "relations": {
+    "show-items": "Show strengths and weakness",
+    "show-weakness": "This pokemon is weak against:",
+    "show-strengths": "This pokemon is strong against:"
+  }
+}
