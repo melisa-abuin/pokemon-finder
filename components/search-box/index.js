@@ -1,11 +1,11 @@
 import React from 'react'
-import { Card } from '../'
+import { Card, TypeRelationships } from '..'
 import { Container, Error, Form, Input, Button } from './styles'
 import useApi from './api'
 
 const SearchBox = () => {
 
-  const [ { pokemon, called }, setData ] = useApi(null)
+  const [ { pokemon, loading, called }, setData ] = useApi(null)
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -21,8 +21,8 @@ const SearchBox = () => {
         <Input name='name' placeholder='type pokemon name' />
         <Button type='button' onClick={e => handleSubmit(e)} >Search</Button>
       </Form>
-      {pokemon ? <Card {...pokemon} /> : 
-        called && <Error>Ups! Pokemon not found</Error>}
+      {pokemon ? <><Card {...pokemon} /> <TypeRelationships types={pokemon.types} /></> : 
+        called && !loading && <Error>Ups! Pokemon not found</Error>}
      
     </Container>
   )
