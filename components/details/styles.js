@@ -9,3 +9,6 @@ export const List = styled.div`
   flex-direction: row;
   justify-content: space-around;
 `
+export const Title = styled.label`
+  width: 100%;
+`

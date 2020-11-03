@@ -20,7 +20,6 @@ const useApi = () => {
 
   const [ pokemon, setPokemon ] = useState(null)
   const [ getPokemon, { called, loading } ] = useLazyQuery(GET_POKEMON_INFO_BY_NAME, {
-    errorPolicy: 'all',
     onCompleted: data => setPokemon(data.pokemon),
     fetchPolicy: 'network-only'
   })

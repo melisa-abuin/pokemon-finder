@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, List } from './styles'
+import { Container, List, Title } from './styles'
 import { TypeIcon } from '..'
 import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
@@ -10,17 +10,20 @@ const multiplier = {
   halfDamageFrom: 0.5
 }
 
-const damageBreakPoint = (point, value) =>  {
-  switch(point){
-    case 'weak':
-      return value > 1
-    case 'strong':
-      return value < 1 && value > 0
-    case 'inmune':
-      return value == 0
-    default:
-      return null
-  }
+const damageBreakPoint = {
+  weak: value => value > 1,
+  strong: value => value < 1 && value > 0,
+  inmune: value => value == 0
+}
+
+
+const applyMultiplication = values => {
+  const finalValues = {}
+
+  values.forEach(({ type, multi })  => 
+  finalValues[type] = finalValues.hasOwnProperty(type) ? finalValues[type] * multi : multi)
+
+  return finalValues
 }
 
 const setRelationshipValues = (rel, damageReference) => {
@@ -32,24 +35,22 @@ const setRelationshipValues = (rel, damageReference) => {
       }))
   })
 
-  const finalValues = {}
-  multiplierValues.forEach(({ type, multi })  => 
-    finalValues[type] = finalValues.hasOwnProperty(type) ? finalValues[type] * multi : multi
-  )
+  const finalValues = applyMultiplication(multiplierValues)
+
   return  Object.keys(finalValues).filter(key => 
-    damageBreakPoint(damageReference, finalValues[key])).map(name =>
+    damageReference(finalValues[key])).map(name =>
       ({ multi: finalValues[name], type: name })
   )
 }
 
 const Details = ({ title, relations, damageReference }) => {
   const { t } = useTranslation('common')
-  
-  const types = setRelationshipValues(relations, damageReference)
-  console.log(types)
+  const damage = damageBreakPoint[damageReference]
+  const types = setRelationshipValues(relations, damage)
+
   return (
     <Container>
-      <label>{t(title)}</label>
+      <Title>{t(title)}</Title>
       <List>
         {types && types.map((item, index) => 
           <TypeIcon key={index} name={item.type} />
@@ -61,7 +62,7 @@ const Details = ({ title, relations, damageReference }) => {
 
 Details.propTypes = {
   title: PropTypes.string.isRequired,
-  relations: PropTypes.object.isRequired,
+  relations: PropTypes.array.isRequired,
   damageReference: PropTypes.string.isRequired
 }
 
