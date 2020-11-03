@@ -12,7 +12,7 @@ const TypeRelationships = ({ types }) => {
 
   const handleClick = useCallback( async types => {
     const mainType = types[0] && types[0].type.name
-    const secondType = types[0] && types[1].type.name
+    const secondType = types[1] && types[1].type.name
     await setData(mainType)
     await setData(secondType)
   })
@@ -23,12 +23,14 @@ const TypeRelationships = ({ types }) => {
 
   return (
     <Container>
-      <Button onClick={() => handleClick(types)}>{t('relations.show-items')}</Button>
-      {relations && <Container>
+      
+      {relations ? <Container>
         <Details title="relations.show-weakness" relations={relations} damageReference="weak" />
         <Details title="relations.show-strengths" relations={relations} damageReference="strong" />
         <Details title="relations.show-inmunity" relations={relations} damageReference="inmune" />
-      </Container>}
+      </Container> : 
+      <Button onClick={() => handleClick(types)}>{t('relations.show-items')}</Button>
+      }
     </Container>
   )
 }

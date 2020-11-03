@@ -30,7 +30,7 @@ const useApi = () => {
     name && getPokemon({ variables: { name: `pokemon/${name}` } })
   }
 
-  return [ { pokemon, error }, setData ]
+  return [ { pokemon, error, loading }, setData ]
 }
 
 export default useApi

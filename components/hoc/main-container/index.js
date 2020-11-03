@@ -5,13 +5,13 @@ import useApi from './api'
 import { useTranslation } from 'react-i18next'
 
 const MainContainer = () => {
-  const [ { pokemon, error }, setData ] = useApi(null)
+  const [ { pokemon, error, loading }, setData ] = useApi(null)
   const { t } = useTranslation('common')
 
   return (
     <Container>
       <SearchBox setData={setData} />
-      { pokemon ? 
+      { !loading && pokemon ? 
         <><Card {...pokemon} /> <TypeRelationships types={pokemon.types} /></> : 
         error && <Error>{t('error.not-found')}</Error> 
       }

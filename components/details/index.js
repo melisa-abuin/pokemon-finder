@@ -48,11 +48,14 @@ const Details = ({ title, relations, damageReference }) => {
   const damage = damageBreakPoint[damageReference]
   const types = setRelationshipValues(relations, damage)
 
+  if(!types.length)
+    return null 
+
   return (
     <Container>
       <Title>{t(title)}</Title>
       <List>
-        {types && types.map((item, index) => 
+        {types.map((item, index) => 
           <TypeIcon key={index} name={item.type} />
         )}
       </List>
