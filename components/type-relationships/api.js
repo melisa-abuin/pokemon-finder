@@ -8,13 +8,10 @@ const GET_TYPES_RELATIONSHIPS = gql`
       doubleDamageFrom: double_damage_from { 
         name
       }
-      doubleDamageTo: double_damage_to {
-        name
-      }
       noDamageFrom: no_damage_from {
         name
       }
-      noDamageTo: no_damage_to {
+      halfDamageFrom: half_damage_from {
         name
       }
     }
