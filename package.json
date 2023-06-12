@@ -27,5 +27,8 @@
   },
   "devDependencies": {
     "husky": "^8.0.3"
+  },
+  "engines": {
+    "node": "18.x || 16.x"
   }
 }
