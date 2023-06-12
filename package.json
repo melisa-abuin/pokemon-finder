@@ -6,21 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "prepare": "husky install"
   },
   "dependencies": {
-    "@apollo/client": "^3.2.1",
+    "@apollo/client": "^3.7.15",
     "apollo-client": "^2.6.10",
     "apollo-link": "^1.2.14",
-    "apollo-link-rest": "^0.8.0-beta.0",
-    "graphql": "^15.3.0",
-    "graphql-anywhere": "^4.2.7",
-    "graphql-tag": "^2.11.0",
-    "next": "9.5.3",
-    "qs": "^6.9.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "styled-components": "^5.2.0"
+    "apollo-link-rest": "^0.9.0",
+    "graphql": "^16.6.0",
+    "graphql-anywhere": "^4.2.8",
+    "graphql-tag": "^2.12.6",
+    "next": "^13.4.5",
+    "qs": "^6.11.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.0-rc.3"
   },
   "devDependencies": {
     "husky": "^8.0.3"
