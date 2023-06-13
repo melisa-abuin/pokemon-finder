@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 message="$(cat $1)"
-requiredPattern="(feature|fix|refactor|deps|docs|test)[[:space:]]+#[0-9]+:[[:space:]]+[A-Za-z ]+$" 
+requiredPattern="(feature|fix|refactor|deps|docs|test)[[:space:]]+#[0-9]+:[[:space:]]+[0-9A-Za-z ]+$" 
 if ! [[ $message =~ $requiredPattern ]];
 then
   echo "-"
