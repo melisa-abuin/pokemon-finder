@@ -1,13 +1,14 @@
 {
   "name": "pokemon-finder",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",
