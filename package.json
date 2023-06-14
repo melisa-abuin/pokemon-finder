@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "typecheck": "tsc"
   },
   "dependencies": {

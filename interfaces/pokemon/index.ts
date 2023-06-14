@@ -1,3 +1,5 @@
+import { Type } from '../type'
+
 export interface Pokemon {
   abilities: Ability[]
   name: string
@@ -14,11 +16,4 @@ export interface Ability {
   }
   is_hidden: boolean
   slot: number
-}
-
-export interface Type {
-  type: {
-    name: string
-    url: string
-  }
 }

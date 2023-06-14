@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { Card } from '..'
 import { Container, Error, Form, Input, Button } from './styles'
 import { useApi } from './api'
+import { Card } from '../card'
 
 const SearchBox = () => {
   const { pokemon, called, loading, setData } = useApi()
