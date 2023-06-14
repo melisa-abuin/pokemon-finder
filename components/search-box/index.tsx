@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { Container, Error, Form, Input, Button } from './styles'
+import { Container, Form, Input, Button } from './styles'
 import { useApi } from './api'
-import { Card } from '../card'
+import { Results } from '../results'
 
 const SearchBox = () => {
   const { pokemon, called, loading, setData } = useApi()
@@ -33,11 +33,7 @@ const SearchBox = () => {
           Search
         </Button>
       </Form>
-      {pokemon ? (
-        <Card {...pokemon} />
-      ) : (
-        called && !loading && <Error>Ups! Pokemon not found</Error>
-      )}
+      <Results called={called} loading={loading} pokemon={pokemon} />
     </Container>
   )
 }
