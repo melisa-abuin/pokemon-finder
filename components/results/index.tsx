@@ -1,6 +1,7 @@
 import { Error } from './styles'
 import { Card } from '../card'
 import { Pokemon } from '@/interfaces/pokemon'
+import { Loader } from '../loader'
 
 interface Props {
   pokemon: Pokemon | null
@@ -10,7 +11,7 @@ interface Props {
 
 export const Results = ({ called, loading, pokemon }: Props) => {
   if (loading) {
-    return <div>loading</div>
+    return <Loader />
   }
 
   if (called && !pokemon) {
