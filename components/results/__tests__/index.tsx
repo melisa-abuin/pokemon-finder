@@ -15,14 +15,14 @@ describe('Results', () => {
     expect(container.firstChild).toBeNull()
   })
 
-  it.skip('renders a loader if the data is not ready yet', () => {
+  it('renders a loader if the data is not ready yet', () => {
     render(
       <ThemeProvider theme={theme}>
         <Results called={true} loading={true} pokemon={null} />
       </ThemeProvider>
     )
 
-    expect(screen.getByText('loading')).toBeInTheDocument()
+    expect(screen.getByRole('progressbar')).toBeInTheDocument()
   })
 
   it('renders an error message if the api was called but no pokemon was returned', () => {

@@ -5,6 +5,9 @@ import theme from '../theme'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -33,7 +36,8 @@ function App({ Component, pageProps }: AppProps) {
 
         <noscript>You need to enable JavaScript to run this app.</noscript>
       </Head>
-      <main>
+
+      <main className={inter.className}>
         <ThemeProvider theme={theme}>
           <ApolloProvider client={client}>
             <Component {...pageProps} />
