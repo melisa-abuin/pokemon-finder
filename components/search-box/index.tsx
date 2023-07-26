@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { Card } from '..'
-import { Container, Error, Form, Input, Button } from './styles'
+import { Container, Form, Input, Button } from './styles'
 import { useApi } from './api'
+import { Results } from '../results'
 
-const SearchBox = () => {
+export const SearchBox = () => {
   const { pokemon, called, loading, setData } = useApi()
   const [pokemonInputValue, setPokemonInputValue] = useState('')
 
@@ -17,8 +17,9 @@ const SearchBox = () => {
     setData(pokemonInputValue)
   }
 
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) =>
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPokemonInputValue(event.target.value)
+  }
 
   return (
     <Container>
@@ -33,13 +34,7 @@ const SearchBox = () => {
           Search
         </Button>
       </Form>
-      {pokemon ? (
-        <Card {...pokemon} />
-      ) : (
-        called && !loading && <Error>Ups! Pokemon not found</Error>
-      )}
+      <Results called={called} loading={loading} pokemon={pokemon} />
     </Container>
   )
 }
-
-export default SearchBox
