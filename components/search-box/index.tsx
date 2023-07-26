@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
-import { Container, Form, Input, Button } from './styles'
+import { Form, Input, Button } from './styles'
 import { useApi } from './api'
 import { Results } from '../results'
 
@@ -22,19 +22,20 @@ export const SearchBox = () => {
   }
 
   return (
-    <Container>
+    <>
       <Form>
         <Input
+          aria-label="type pokemon name"
           name="name"
           placeholder="type pokemon name"
           onChange={handleOnChange}
           value={pokemonInputValue}
         />
-        <Button type="submit" onClick={handleSubmit}>
+        <Button aria-label="search" type="submit" onClick={handleSubmit}>
           Search
         </Button>
       </Form>
       <Results called={called} loading={loading} pokemon={pokemon} />
-    </Container>
+    </>
   )
 }

@@ -1,37 +1,30 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-image: url('/background.jpg');
-  height: 100vh;
-`
 export const Form = styled.form`
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 `
 export const Input = styled.input`
-  width: 100%;
-  border: 1px solid ${({ theme }) => theme.colors.nobel};
-  padding: 10px 20px;
   border-radius: 8px;
-  margin: 10px;
+  border: 1px solid ${({ theme }) => theme.colors.nobel};
   box-sizing: border-box;
+  font-size: 14px;
+  margin: 10px;
+  padding: 10px 20px;
+  width: 100%;
 `
 export const Button = styled.button`
+  background-color: ${({ theme }) => theme.colors.sunset};
+  border-radius: 8px;
   border: none;
+  color: ${({ theme }) => theme.colors.white};
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
   padding: 10px 20px;
   width: 100%;
-  border-radius: 8px;
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.sunset};
-  cursor: pointer;
-  outline: none;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.red};
