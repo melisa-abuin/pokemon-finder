@@ -25,12 +25,13 @@ export const SearchBox = () => {
     <Container>
       <Form>
         <Input
+          aria-label="type pokemon name"
           name="name"
           placeholder="type pokemon name"
           onChange={handleOnChange}
           value={pokemonInputValue}
         />
-        <Button type="submit" onClick={handleSubmit}>
+        <Button aria-label="search" type="submit" onClick={handleSubmit}>
           Search
         </Button>
       </Form>
