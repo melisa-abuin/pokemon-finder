@@ -3,7 +3,7 @@ import { Container, Form, Input, Button } from './styles'
 import { useApi } from './api'
 import { Results } from '../results'
 
-const SearchBox = () => {
+export const SearchBox = () => {
   const { pokemon, called, loading, setData } = useApi()
   const [pokemonInputValue, setPokemonInputValue] = useState('')
 
@@ -17,8 +17,9 @@ const SearchBox = () => {
     setData(pokemonInputValue)
   }
 
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) =>
+  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPokemonInputValue(event.target.value)
+  }
 
   return (
     <Container>
@@ -37,5 +38,3 @@ const SearchBox = () => {
     </Container>
   )
 }
-
-export default SearchBox
