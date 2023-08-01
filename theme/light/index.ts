@@ -1,4 +1,18 @@
 const lightTheme = {
+  absoluteColors: {
+    primary: '#ff5050',
+    transparent: 'transparent',
+    secondary: '#E60000',
+    white: '#ffffff',
+  },
+  backgrounds: {
+    primary: '#d4cece',
+    secondary: '#ffffff',
+  },
+  text: {
+    primary: '#050505',
+    secondary: '#6b6565',
+  },
   colors: {
     alabaster: '#FAFAFA',
     astral: '#327DA0',

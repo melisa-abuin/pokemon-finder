@@ -1,4 +1,19 @@
 const darkTheme = {
+  absoluteColors: {
+    primary: '#ff5050',
+    transparent: 'transparent',
+    secondary: '#E60000',
+    white: '#ffffff',
+  },
+  backgrounds: {
+    primary: '#211c1c',
+    secondary: '#3c3a3a',
+  },
+  text: {
+    primary: '#ebe4e4',
+    secondary: '#b8b0b0',
+  },
+
   colors: {
     alabaster: '#FAFAFA',
     astral: '#327DA0',

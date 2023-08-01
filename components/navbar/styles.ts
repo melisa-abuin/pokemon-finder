@@ -5,6 +5,7 @@ export const Button = styled.button`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.transparent};
   border: none;
+  color: ${({ theme }) => theme.text.secondary};
   cursor: pointer;
   display: flex;
   flex-direction: row;
