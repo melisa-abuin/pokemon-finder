@@ -12,7 +12,7 @@ const lightTheme = {
     red: '#E60000',
     rose: '#FFAA80',
     sunset: '#FF5050',
-    transparent: 'inherit',
+    transparent: 'transparent',
     white: '#FFFFFF',
   },
   fonts: {

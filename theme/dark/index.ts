@@ -12,7 +12,7 @@ const darkTheme = {
     red: '#FFFFFF',
     rose: '#FFAA80',
     sunset: '#000000',
-    transparent: 'inherit',
+    transparent: 'transparent',
     white: '#FFFFFF',
   },
   fonts: {
