@@ -1,15 +1,17 @@
 import { ApolloProvider } from '@apollo/client'
 import { client } from '../client'
-import { ThemeProvider } from 'styled-components'
-import theme from '../theme'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
+import { getActiveTheme } from '@/utils/getActiveTheme'
+import { CustomThemeProvider } from '@/context/CustomThemeProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
 function App({ Component, pageProps }: AppProps) {
+  const activeTheme = getActiveTheme()
+
   return (
     <>
       <Head>
@@ -38,11 +40,11 @@ function App({ Component, pageProps }: AppProps) {
       </Head>
 
       <main className={inter.className}>
-        <ThemeProvider theme={theme}>
+        <CustomThemeProvider activeTheme={activeTheme}>
           <ApolloProvider client={client}>
             <Component {...pageProps} />
           </ApolloProvider>
-        </ThemeProvider>
+        </CustomThemeProvider>
       </main>
     </>
   )
