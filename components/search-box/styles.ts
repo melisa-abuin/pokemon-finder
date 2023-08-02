@@ -30,6 +30,18 @@ export const Input = styled.input`
   & -ms-input-placeholder {
     color: ${({ theme }) => theme.text.secondary};
   }
+
+  &:focus {
+    background-color: ${({ theme }) => theme.backgrounds.tertiary};
+    outline: none;
+  }
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px
+      ${({ theme }) => theme.backgrounds.tertiary} inset;
+  }
+
+  -webkit-text-fill-color: ${({ theme }) => theme.text.primary} !important;
 `
 export const Button = styled.button`
   background-color: ${({ theme }) => theme.absoluteColors.primary};

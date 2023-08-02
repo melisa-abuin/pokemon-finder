@@ -8,6 +8,7 @@ const darkTheme = {
   backgrounds: {
     primary: '#211c1c',
     secondary: '#3c3a3a',
+    tertiary: '#504e4e',
   },
   text: {
     primary: '#ebe4e4',
@@ -46,3 +47,5 @@ const darkTheme = {
 }
 
 export default darkTheme
+/* teoricamente los "colors" deberian desaparecer, solo tienen que quedar las cosas de cada tema y quizas 
+colores absolutos. ver que hacer con el naranja de la card.**/
