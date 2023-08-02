@@ -16,10 +16,10 @@ export const Navbar = () => {
   }, [theme.name, setTheme])
 
   const getPokemonThemeImage = () => {
-    let pokemonThemeNumber = pokedexNumber.solgaleo
+    let pokemonThemeNumber = pokedexNumber.lunala
 
     if (theme.name === themesNames.light) {
-      pokemonThemeNumber = pokedexNumber.lunala
+      pokemonThemeNumber = pokedexNumber.solgaleo
     }
 
     return `${pokemonSpritesUrl}/${pokemonThemeNumber}.png`

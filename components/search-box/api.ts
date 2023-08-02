@@ -11,6 +11,7 @@ const GET_POKEMON_INFO_BY_NAME = gql`
       image: sprites {
         front: front_default
       }
+      id
       types {
         type
       }
