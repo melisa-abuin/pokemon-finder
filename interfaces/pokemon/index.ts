@@ -6,6 +6,7 @@ export interface Pokemon {
   image: {
     front: string
   }
+  id: number
   types: Type[]
 }
 

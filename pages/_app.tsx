@@ -1,15 +1,20 @@
 import { ApolloProvider } from '@apollo/client'
 import { client } from '../client'
-import { ThemeProvider } from 'styled-components'
-import theme from '../theme'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { getActiveTheme } from '@/utils/getActiveTheme'
+import { CustomThemeProvider } from '@/context/CustomThemeProvider'
+import { useEffect, useState } from 'react'
+import themes from '@/theme'
 
 function App({ Component, pageProps }: AppProps) {
+  const [activeTheme, setActiveTheme] = useState(themes.light)
+
+  useEffect(() => {
+    setActiveTheme(getActiveTheme())
+  }, [])
+
   return (
     <>
       <Head>
@@ -37,13 +42,11 @@ function App({ Component, pageProps }: AppProps) {
         <noscript>You need to enable JavaScript to run this app.</noscript>
       </Head>
 
-      <main className={inter.className}>
-        <ThemeProvider theme={theme}>
-          <ApolloProvider client={client}>
-            <Component {...pageProps} />
-          </ApolloProvider>
-        </ThemeProvider>
-      </main>
+      <CustomThemeProvider activeTheme={activeTheme}>
+        <ApolloProvider client={client}>
+          <Component {...pageProps} />
+        </ApolloProvider>
+      </CustomThemeProvider>
     </>
   )
 }

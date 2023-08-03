@@ -1,17 +1,17 @@
 import { render, screen } from '@testing-library/react'
-import { Container } from '..'
+import { Badge } from '..'
+import mockPokemon from '@/mocks/pokemon'
 import theme from '@/theme'
 import { CustomThemeProvider } from '@/context/CustomThemeProvider'
 
-describe('Container', () => {
-  it('renders the correct children', () => {
-    const mockedText = 'hello!'
+describe('Badge', () => {
+  it('renders the correct pokemon id', () => {
     render(
       <CustomThemeProvider activeTheme={theme.light}>
-        <Container>{mockedText}</Container>
+        <Badge id={mockPokemon.id} />
       </CustomThemeProvider>
     )
 
-    expect(screen.getByText(mockedText)).toBeInTheDocument()
+    expect(screen.getByText(`no. ${mockPokemon.id}`)).toBeInTheDocument()
   })
 })

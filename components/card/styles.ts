@@ -10,17 +10,34 @@ const shine = keyframes`
 `
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.colors.mercury};
-  box-shadow: 6px 7px 20px 5px rgba(128, 128, 128, 0.49);
+  background-color: ${({ theme }) => theme.backgrounds.secondary};
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
   margin: 20px;
+  padding: 10px;
   position: relative;
   width: 270px;
 `
+
+export const Divider = styled.hr`
+  border: 1px solid ${({ theme }) => theme.backgrounds.tertiary};
+  margin-top: 10px;
+  width: 100%;
+`
+
+export const Header = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 8px;
+`
+
 export const ImageBackground = styled.div`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.rose};
+  background-color: ${({ theme }) => theme.absoluteColors.tertiary};
+  border-radius: 7px;
   display: flex;
-  height: 170px;
+  height: 120px;
   justify-content: center;
   width: 100%;
   background: linear-gradient(
@@ -33,26 +50,21 @@ export const ImageBackground = styled.div`
       rgba(255, 255, 255, 0) 57%,
       rgba(255, 255, 255, 0) 100%
     ),
-    ${({ theme }) => theme.colors.rose};
+    ${({ theme }) => theme.absoluteColors.tertiary};
   animation: ${shine} 2s forwards;
   background-size: 600px 600px, 100% 100%;
   background-repeat: no-repeat;
   animation-delay: 0.5s;
 `
-export const Image = styled.img`
-  max-height: 170px;
-  max-width: 170px;
-`
-export const Title = styled.div`
-  background-color: rgba(255, 255, 255, 0.3);
-  color: ${({ theme }) => theme.colors.white};
-  left: 12px;
+
+export const Title = styled.h2`
+  color: ${({ theme }) => theme.text.primary};
+  font-size: 18px;
+  font-weight: 500;
   margin: 0;
-  padding: 6px 16px;
-  position: absolute;
-  top: 0;
 `
 export const TypesSection = styled.div`
+  color: ${({ theme }) => theme.text.primary};
   display: flex;
   justify-content: space-around;
 `

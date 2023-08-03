@@ -12,6 +12,7 @@ export const mockPokemon: Pokemon = {
     },
   ],
   name: 'charizard',
+  id: 6,
   image: {
     front: 'https://pokeapi.co/media/sprites/charizard.png',
   },
