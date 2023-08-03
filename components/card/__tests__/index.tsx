@@ -1,20 +1,20 @@
 import { render, screen } from '@testing-library/react'
 import { Card } from '..'
 import mockPokemon from '@/mocks/pokemon'
-import { ThemeProvider } from 'styled-components'
+import { CustomThemeProvider } from '@/context/CustomThemeProvider'
 import theme from '@/theme'
 
 describe('Card', () => {
   it('renders the correct pokemon name', () => {
     render(
-      <ThemeProvider theme={theme.light}>
+      <CustomThemeProvider activeTheme={theme.light}>
         <Card
           name={mockPokemon.name}
           id={mockPokemon.id}
           image={mockPokemon.image}
           types={mockPokemon.types}
         />
-      </ThemeProvider>
+      </CustomThemeProvider>
     )
 
     expect(screen.getByText(mockPokemon.name)).toBeInTheDocument()
@@ -22,14 +22,14 @@ describe('Card', () => {
 
   it('renders alt image', () => {
     render(
-      <ThemeProvider theme={theme.light}>
+      <CustomThemeProvider activeTheme={theme.light}>
         <Card
           name={mockPokemon.name}
           id={mockPokemon.id}
           image={mockPokemon.image}
           types={mockPokemon.types}
         />
-      </ThemeProvider>
+      </CustomThemeProvider>
     )
 
     expect(screen.getByAltText(mockPokemon.name)).toBeInTheDocument()

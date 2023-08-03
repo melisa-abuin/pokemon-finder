@@ -1,5 +1,5 @@
 import { Theme } from '@/interfaces/theme'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 const ThemeContext = React.createContext<
@@ -14,9 +14,14 @@ export function CustomThemeProvider({
   activeTheme: Theme
 }) {
   const [theme, setTheme] = React.useState(activeTheme)
+
+  useEffect(() => {
+    setTheme(activeTheme)
+  }, [activeTheme])
+
   return (
     <ThemeContext.Provider value={[theme, setTheme]}>
-      <ThemeProvider theme={theme.light}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   )
 }
@@ -24,7 +29,7 @@ export function CustomThemeProvider({
 export function useCustomTheme() {
   const context = React.useContext(ThemeContext)
   if (context === undefined) {
-    throw new Error('useForecast must be used within a ForecastProvider')
+    throw new Error('useCustomTheme must be used within a CustomThemeProvider')
   }
   return context
 }

@@ -1,5 +1,7 @@
 export interface Theme {
-  colors: Record<string, string>
+  absoluteColors: Record<string, string>
+  backgrounds: Record<string, string>
+  text: Record<string, string>
   fonts: Record<string, string>
   name: string
 }

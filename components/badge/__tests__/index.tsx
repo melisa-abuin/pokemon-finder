@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import { Badge } from '..'
 import mockPokemon from '@/mocks/pokemon'
-import { ThemeProvider } from 'styled-components'
 import theme from '@/theme'
+import { CustomThemeProvider } from '@/context/CustomThemeProvider'
 
 describe('Badge', () => {
   it('renders the correct pokemon id', () => {
     render(
-      <ThemeProvider theme={theme.light}>
+      <CustomThemeProvider activeTheme={theme.light}>
         <Badge id={mockPokemon.id} />
-      </ThemeProvider>
+      </CustomThemeProvider>
     )
 
     expect(screen.getByText(`no. ${mockPokemon.id}`)).toBeInTheDocument()

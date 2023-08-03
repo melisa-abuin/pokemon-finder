@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react'
 import { Container } from '..'
 import theme from '@/theme'
-import { ThemeProvider } from 'styled-components'
+import { CustomThemeProvider } from '@/context/CustomThemeProvider'
 
 describe('Container', () => {
   it('renders the correct children', () => {
     const mockedText = 'hello!'
     render(
-      <ThemeProvider theme={theme.light}>
+      <CustomThemeProvider activeTheme={theme.light}>
         <Container>{mockedText}</Container>
-      </ThemeProvider>
+      </CustomThemeProvider>
     )
 
     expect(screen.getByText(mockedText)).toBeInTheDocument()

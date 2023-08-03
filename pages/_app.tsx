@@ -5,9 +5,15 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { getActiveTheme } from '@/utils/getActiveTheme'
 import { CustomThemeProvider } from '@/context/CustomThemeProvider'
+import { useEffect, useState } from 'react'
+import themes from '@/theme'
 
 function App({ Component, pageProps }: AppProps) {
-  const activeTheme = getActiveTheme()
+  const [activeTheme, setActiveTheme] = useState(themes.light)
+
+  useEffect(() => {
+    setActiveTheme(getActiveTheme())
+  }, [])
 
   return (
     <>
