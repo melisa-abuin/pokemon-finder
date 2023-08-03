@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import NextImage from 'next/image'
 
 export const Button = styled.button`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.transparent};
+  background-color: ${({ theme }) => theme.absoluteColors.transparent};
   border: none;
   color: ${({ theme }) => theme.text.secondary};
   cursor: pointer;
@@ -12,10 +11,8 @@ export const Button = styled.button`
   gap: 10px;
 `
 
-export const Image = styled(NextImage)``
-
 export const Nav = styled.nav`
-  background-color: ${({ theme }) => theme.colors.transparent};
+  background-color: ${({ theme }) => theme.absoluteColors.transparent};
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

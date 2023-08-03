@@ -1,8 +1,9 @@
 import { pokedexNumber, pokemonSpritesUrl, themesNames } from '@/constants'
-import { Button, Image, Nav, Ul } from './styles'
+import { Button, Nav, Ul } from './styles'
 import { useCustomTheme } from '@/context/CustomThemeProvider'
 import themes from '@/theme'
 import { useCallback } from 'react'
+import Image from 'next/image'
 
 export const Navbar = () => {
   const [theme, setTheme] = useCustomTheme()

@@ -1,7 +1,5 @@
 import React from 'react'
 import {
-  Badge,
-  BadgeText,
   Container,
   Divider,
   Header,
@@ -12,19 +10,18 @@ import {
 import { Pokemon } from '@/interfaces/pokemon'
 import { TypeImage } from '../type-image'
 import Image from 'next/image'
+import { Badge } from '../badge'
 
 export const Card = ({
-  name,
-  image,
   id,
+  image,
+  name,
   types,
 }: Omit<Pokemon, 'abilities'>) => {
   return (
     <Container>
       <Header>
-        <Badge>
-          <BadgeText>no. {id}</BadgeText>
-        </Badge>
+        <Badge id={id} />
         <Title>{name}</Title>
       </Header>
       <ImageBackground>

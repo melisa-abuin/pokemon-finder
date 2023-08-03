@@ -8,28 +8,11 @@ const shine = keyframes`
     background-position: 250px 250px, center;
   }
 `
-export const Badge = styled.div`
-  background-color: ${({ theme }) => theme.absoluteColors.secondary};
-  border-radius: 3px;
-  color: ${({ theme }) => theme.absoluteColors.white};
-  font-size: 12px;
-  padding: 2px 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  transform: skew(-20deg);
-`
-
-export const BadgeText = styled.span`
-  transform: skew(20deg);
-`
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.backgrounds.secondary};
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
   border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
   margin: 20px;
   padding: 10px;
   position: relative;
@@ -51,7 +34,7 @@ export const Header = styled.div`
 
 export const ImageBackground = styled.div`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.rose};
+  background-color: ${({ theme }) => theme.absoluteColors.tertiary};
   border-radius: 7px;
   display: flex;
   height: 120px;
@@ -67,7 +50,7 @@ export const ImageBackground = styled.div`
       rgba(255, 255, 255, 0) 57%,
       rgba(255, 255, 255, 0) 100%
     ),
-    ${({ theme }) => theme.colors.rose};
+    ${({ theme }) => theme.absoluteColors.tertiary};
   animation: ${shine} 2s forwards;
   background-size: 600px 600px, 100% 100%;
   background-repeat: no-repeat;

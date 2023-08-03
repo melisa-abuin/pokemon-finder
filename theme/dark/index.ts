@@ -3,6 +3,7 @@ const darkTheme = {
     primary: '#ff5050',
     transparent: 'transparent',
     secondary: '#E60000',
+    tertiary: '#ffaa80',
     white: '#ffffff',
   },
   backgrounds: {
@@ -13,23 +14,6 @@ const darkTheme = {
   text: {
     primary: '#ebe4e4',
     secondary: '#b8b0b0',
-  },
-
-  colors: {
-    alabaster: '#FAFAFA',
-    astral: '#327DA0',
-    aquamarine: '#A1DAD7',
-    azure: '#0080FF',
-    black: '#000000',
-    cobalt: '#003DB3',
-    gray: '#333333',
-    mercury: '#F7F7F7',
-    nobel: '#B3B3B3',
-    red: '#FFFFFF',
-    rose: '#FFAA80',
-    sunset: '#000000',
-    transparent: 'transparent',
-    white: '#FFFFFF',
   },
   fonts: {
     small0: '10px',

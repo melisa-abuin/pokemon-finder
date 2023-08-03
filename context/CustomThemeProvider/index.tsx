@@ -16,7 +16,7 @@ export function CustomThemeProvider({
   const [theme, setTheme] = React.useState(activeTheme)
   return (
     <ThemeContext.Provider value={[theme, setTheme]}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <ThemeProvider theme={theme.light}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   )
 }

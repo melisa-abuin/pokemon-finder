@@ -7,9 +7,10 @@ import theme from '@/theme'
 describe('Card', () => {
   it('renders the correct pokemon name', () => {
     render(
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme.light}>
         <Card
           name={mockPokemon.name}
+          id={mockPokemon.id}
           image={mockPokemon.image}
           types={mockPokemon.types}
         />
@@ -21,9 +22,10 @@ describe('Card', () => {
 
   it('renders alt image', () => {
     render(
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme.light}>
         <Card
           name={mockPokemon.name}
+          id={mockPokemon.id}
           image={mockPokemon.image}
           types={mockPokemon.types}
         />
